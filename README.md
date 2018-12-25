@@ -6,7 +6,7 @@ Transforms folders and images into a fast, modern portfolio website. Focus on co
 
 Here is an example of how a portola project wold look.
 
-- content/
+- site/
   - index.md
   - Blog/
     - First Blog Post/
@@ -39,7 +39,12 @@ Here is an example of how a portola project wold look.
     - social.jpg
     - style.css
 - inner_workings/
-  - gastbyconfig.js
+  - .cache/
+  - src/
+    - templates/
+    - html.js
+- finished_site/
+- .gitignore
 - package.json
 
 ## tasks
@@ -53,6 +58,7 @@ Here is an example of how a portola project wold look.
 - favicons
 - support for scss, less, etc.
 - npm package
+- config build directory
 - portola command to start server
 - portola command to create site
 - portola command to publish
