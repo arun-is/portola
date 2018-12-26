@@ -6,7 +6,7 @@ Transforms folders and images into a fast, modern portfolio website. Focus on co
 
 Here is an example of how a portola project wold look.
 
-- site/
+- content/
   - index.md
   - Blog/
     - First Blog Post/
@@ -42,7 +42,15 @@ Here is an example of how a portola project wold look.
   - .cache/
   - src/
     - templates/
+      - collections/
+        - image.js
+        - text.js
+      - pages/
+        - home.js
+        - image.js
+        - text.js
     - html.js
+  - gatsby-config.js
 - finished_site/
 - .gitignore
 - package.json
@@ -52,7 +60,7 @@ Here is an example of how a portola project wold look.
 ### to be prioritized
 
 - put together sample site
-- mvp of directory structure working with gatsby
+- mvp working with gatsby
 - image resizing
 - social images
 - favicons
@@ -64,6 +72,7 @@ Here is an example of how a portola project wold look.
 - portola command to publish
 - launch video
 - documentation
+- base theme
 
 ### todo
 
