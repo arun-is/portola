@@ -73,6 +73,7 @@ Here is an example of how a portola project wold look.
 - launch video
 - documentation
 - base theme
+- look through portfolios to understand structure and needs https://www.bestfolios.com/portfolios
 
 ### todo
 
