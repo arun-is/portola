@@ -4,76 +4,10 @@ Transforms folders and images into a fast, modern portfolio website. Focus on co
 
 ## directory structure
 
-Here is an example of how a portola project wold look.
+Here is an example of how a portola project would look.
 
-- content/
-  - index.md
-  - Blog/
-    - First Blog Post/
-      - index.md
-    - Second Blog Post/
-      - index.md
-      - x.jpg
-      - y.jpg
-      - z.jpg
-  - Photos/
-    - Landscapes/
-      - Big Sur.jpg
-      - Tiburon.jpg
-    - Portraits/
-      - Joey.jpg
-      - Maya.jpg
-    - Street/
-      - Berlin.jpg
-      - San Francisco.jpg
-- theme/
-  - collections/
-    - image.js
-    - text.js
-  - pages/
-    - home.js
-    - image.js
-    - text.js
-  - static/
-    - favicon.jpg
-    - social.jpg
-    - style.css
-- inner_workings/
-  - .cache/
-  - src/
-    - templates/
-      - collections/
-        - image.js
-        - text.js
-      - pages/
-        - home.js
-        - image.js
-        - text.js
-    - html.js
-  - gatsby-config.js
-- finished_site/
+- pages/ pages in here describe the site content
+- templates/ each page lists a template that is in here
+- finished_site/ this is where the finished site shows up
 - .gitignore
 - package.json
-
-## tasks
-
-### to be prioritized
-
-- put together sample site
-- mvp working with gatsby
-- image resizing
-- social images
-- favicons
-- support for scss, less, etc.
-- npm package
-- config build directory
-- portola command to start server
-- portola command to create site
-- portola command to publish
-- launch video
-- documentation
-- base theme
-
-### todo
-
-### nice to haves / punted
