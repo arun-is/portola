@@ -37,7 +37,8 @@ exports.createPages = async ({ actions, graphql }) => {
       }
   }
   `)
-  console.log(util.inspect(pagesResult, false, null, true))
+  const markDownFiles = pagesResult.data.allMarkdownRemark.edges
+  console.log(util.inspect(markDownFiles, false, null, true))
 }
 
 // async/await
