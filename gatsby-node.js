@@ -1,25 +1,26 @@
 const path = require("path")
 const util = require("util")
 
-exports.createPages = async ({ actions, graphql }) => {
-  const fieldsResult = await graphql(`
-    {
-      __type(name: "frontmatter") {
-        name
-        fields {
-          name
-        }
-      }
-      allFile {
-        edges {
-          node {
-            id
-            relativePath
-          }
-        }
-      }
+const frontmatterQuery = addTwo => `
+{
+  __type(name: "frontmatter${addTwo ? "_2" : ""}") {
+    name
+    fields {
+      name
     }
-  `)
+  }
+}
+`
+
+exports.createPages = async ({ actions, graphql }) => {
+  let fieldsResult = await graphql(frontmatterQuery())
+
+  if (!fieldsResult.data.__type) {
+    fieldsResult = await graphql(frontmatterQuery(true))
+  }
+
+  console.log(util.inspect(fieldsResult, false, null, true))
+
   const fields = fieldsResult.data.__type.fields.map(field => field.name)
 
   const pagesResult = await graphql(`
@@ -38,7 +39,7 @@ exports.createPages = async ({ actions, graphql }) => {
   }
   `)
   const markDownFiles = pagesResult.data.allMarkdownRemark.edges
-  console.log(util.inspect(markDownFiles, false, null, true))
+  //console.log(util.inspect(markDownFiles, false, null, true))
 
   const { createPage } = actions
   markDownFiles.forEach(({ node }) => {
