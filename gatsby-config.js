@@ -1,8 +1,16 @@
+const path = require("path")
+
 module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        templates: path.join(process.cwd(), "templates")
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

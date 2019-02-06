@@ -39,6 +39,19 @@ exports.createPages = async ({ actions, graphql }) => {
   `)
   const markDownFiles = pagesResult.data.allMarkdownRemark.edges
   console.log(util.inspect(markDownFiles, false, null, true))
+
+  const { createPage } = actions
+  markDownFiles.forEach(({ node }) => {
+    const { frontmatter, html } = node
+    createPage({
+      path: "/",
+      component: path.resolve(`src/components/MasterTemplate.js`),
+      context: {
+        frontmatter,
+        html
+      }
+    })
+  })
 }
 
 // async/await
