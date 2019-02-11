@@ -5,8 +5,8 @@ const TestTemplate = ({ frontmatter, children }) => {
 
   return (
     <div>
-      <h1>Foo: {frontmatter.foo}</h1>
-      <h1>Bar: {frontmatter.bar}</h1>
+      <h1 style={{ color: "red" }}>{frontmatter.foo}</h1>
+      <h1>{frontmatter.bar}</h1>
       {children}
     </div>
   )

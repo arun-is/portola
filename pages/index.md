@@ -1,7 +1,7 @@
 ---
 template: TestTemplate.js
 foo: hello
-bar: 1
+bar: "2"
 test: lalala
 test2: bababa
 ---
