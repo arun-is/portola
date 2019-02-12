@@ -12,11 +12,6 @@ const frontmatterQuery = addTwo => `
 }
 `
 
-const relativePathToPath = relativePath => {
-  const pathWithoutFileName = relativePath.replace("index.md", "")
-  return "/" + pathWithoutFileName
-}
-
 exports.createPages = async ({ actions, graphql }) => {
   let fieldsResult = await graphql(frontmatterQuery())
 
@@ -33,7 +28,7 @@ exports.createPages = async ({ actions, graphql }) => {
       allFile {
         edges {
           node {
-            relativePath
+            relativeDirectory
             childMarkdownRemark {
               frontmatter {
                 ${fields.join("\n")}
@@ -51,10 +46,10 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const { createPage } = actions
   files.forEach(({ node }) => {
-    const { relativePath, childMarkdownRemark } = node
+    const { relativeDirectory, childMarkdownRemark } = node
     const { frontmatter, html } = childMarkdownRemark
     createPage({
-      path: relativePathToPath(relativePath),
+      path: "/" + relativeDirectory,
       component: path.resolve(`src/components/MasterTemplate.js`),
       context: {
         frontmatter,
