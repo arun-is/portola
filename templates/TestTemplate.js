@@ -1,5 +1,7 @@
 import React from "react"
 
+import "./style.css"
+
 const TestTemplate = ({ frontmatter, children }) => {
   console.log("logic goes here")
 

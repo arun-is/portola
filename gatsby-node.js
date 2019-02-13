@@ -47,14 +47,16 @@ exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
   files.forEach(({ node }) => {
     const { relativeDirectory, childMarkdownRemark } = node
-    const { frontmatter, html } = childMarkdownRemark
-    createPage({
-      path: "/" + relativeDirectory,
-      component: path.resolve(`src/components/MasterTemplate.js`),
-      context: {
-        frontmatter,
-        html
-      }
-    })
+    if (!!childMarkdownRemark) {
+      const { frontmatter, html } = childMarkdownRemark
+      createPage({
+        path: "/" + relativeDirectory,
+        component: path.resolve(`src/components/MasterTemplate.js`),
+        context: {
+          frontmatter,
+          html
+        }
+      })
+    }
   })
 }
