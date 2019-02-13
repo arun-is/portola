@@ -2,7 +2,7 @@
   "name": "portola",
   "private": true,
   "description": "",
-  "version": "0.100",
+  "version": "0.0.0",
   "author": "Arun Venkatesan <dallasarun@gmail.com>",
   "dependencies": {
     "gatsby": "^2.0.115",
@@ -19,6 +19,9 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0"
+  },
+  "bin": {
+    "portola": "bin/portola.js"
   },
   "keywords": [
     "gatsby"
