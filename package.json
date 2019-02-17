@@ -12,7 +12,6 @@
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sharp": "^2.0.20",
     "gatsby-remark-images": "^3.0.3",
-    "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-remark": "^2.2.4",
     "gatsby-transformer-sharp": "^2.1.13",
     "prop-types": "^15.6.2",
@@ -21,7 +20,7 @@
     "react-helmet": "^5.2.0"
   },
   "bin": {
-    "portola": "bin/portola.js"
+    "portola": "scripts/portola.js"
   },
   "keywords": [
     "gatsby"
@@ -51,6 +50,9 @@
     "trailingComma": "none"
   },
   "devDependencies": {
-    "gatsby-plugin-root-import": "^2.0.5"
+    "fs-extra": "^7.0.1",
+    "gatsby-plugin-root-import": "^2.0.5",
+    "gatsby-source-filesystem": "^2.0.20",
+    "lnk": "^1.1.0"
   }
 }

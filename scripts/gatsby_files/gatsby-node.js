@@ -51,7 +51,7 @@ exports.createPages = async ({ actions, graphql }) => {
       const { frontmatter, html } = childMarkdownRemark
       createPage({
         path: "/" + relativeDirectory,
-        component: path.resolve(`src/components/MasterTemplate.js`),
+        component: path.resolve(`src/MasterTemplate.js`),
         context: {
           frontmatter,
           html
