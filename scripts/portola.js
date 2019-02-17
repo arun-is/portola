@@ -3,10 +3,12 @@
 const lnk = require("lnk")
 const fs = require("fs-extra")
 const child_process = require("child_process")
+const path = require("path")
+const report = require("yurnalist")
 
 const cwd = process.cwd()
-const inner_workings = `${cwd}/inner_workings`
-const gatsby_files = `${__dirname}/gatsby_files`
+const inner_workings = path.join(cwd, "inner_workings")
+const gatsby_files = path.join(__dirname, "gatsby_files")
 
 const arguments = process.argv.slice(2)
 const firstArgument = arguments[0]
@@ -21,14 +23,15 @@ const getValidArgumentStrings = () => Object.values(VALID_ARGUMENTS)
 
 const establishLinks = async () => {
   await fs.emptyDir(inner_workings)
+  report.success("cleared inner_workings directory")
 
   const filesToCopy = ["gatsby-config.js", "gatsby-node.js", "src"]
 
   while (filesToCopy.length > 0) {
     const fileToCopy = filesToCopy.pop()
     await fs.copy(
-      `${gatsby_files}/${fileToCopy}`,
-      `${inner_workings}/${fileToCopy}`
+      path.join(gatsby_files, fileToCopy),
+      path.join(inner_workings, fileToCopy)
     )
   }
 
@@ -36,11 +39,12 @@ const establishLinks = async () => {
     [`${cwd}/node_modules`, `${cwd}/package.json`, `${cwd}/package-lock.json`],
     inner_workings
   )
+  report.success("copied files to inner_workings directory")
 }
 
 const main = async () => {
   if (arguments.length === 0) {
-    console.log(
+    report.error(
       `You must provide an argument like: ${getValidArgumentStrings().join(
         ", "
       )}`
@@ -49,9 +53,10 @@ const main = async () => {
   }
 
   if (!getValidArgumentStrings().includes(firstArgument)) {
-    console.log(`${firstArgument} isn't a valid argument.`)
-    console.log(
-      `try one of the following: ${getValidArgumentStrings().join(", ")}`
+    report.error(
+      `${firstArgument} isn't a valid argument. try one of the following: ${getValidArgumentStrings().join(
+        ", "
+      )}`
     )
     return
   }

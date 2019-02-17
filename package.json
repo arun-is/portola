@@ -53,6 +53,7 @@
     "fs-extra": "^7.0.1",
     "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-source-filesystem": "^2.0.20",
-    "lnk": "^1.1.0"
+    "lnk": "^1.1.0",
+    "yurnalist": "^1.0.5"
   }
 }
