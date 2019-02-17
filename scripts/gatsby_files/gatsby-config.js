@@ -1,5 +1,8 @@
 const path = require("path")
 
+const cwd = process.cwd()
+const rootDirectory = cwd.replace(new RegExp("/inner_workings$"), "")
+
 module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -8,13 +11,13 @@ module.exports = {
     {
       resolve: "gatsby-plugin-root-import",
       options: {
-        templates: path.join(process.cwd(), "templates")
+        templates: path.join(rootDirectory, "templates")
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${process.cwd()}/pages`,
+        path: `${rootDirectory}/pages`,
         name: "markdown-pages"
       }
     },
@@ -35,8 +38,5 @@ module.exports = {
         ]
       }
     }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
   ]
 }
